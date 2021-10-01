@@ -19,7 +19,8 @@ export default class ListPage extends Component {
                     Name: {player.name} <br/>
                     Country: {player.country} <br/>
                     Rating: {player.rating} <br/>
-                    Is world champion? {player.worldchampion ? 'yes' : 'no'}
+                    Is world champion? {player.worldchampion ? 'yes' : 'no'} <br/>
+                    <img src={`${player.image}`} alt='person'/>
                     <br/> <br/> 
                 </div>)}
                 
