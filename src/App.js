@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {
     BrowserRouter as Router, 
+    NavLink,
     Route, 
     Switch,
 } from 'react-router-dom';
@@ -13,6 +14,10 @@ export default class App extends Component {
       return (
           <div>
               <Router>
+                <header>
+                  <NavLink to='/'>List</NavLink> 
+                  <NavLink to='/create'>Create</NavLink>
+                </header>
                   <Switch>
                       <Route 
                           path="/" 

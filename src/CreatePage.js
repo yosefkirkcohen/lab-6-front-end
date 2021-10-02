@@ -29,6 +29,8 @@ export default class CreatePage extends Component {
 
     handleImageChange = e => this.setState({image: e.target.value})
 
+    handleWorldChampion = e => this.setState({worldchampion: e.target.value})
+
     render() {
         return (
             <div>
@@ -43,10 +45,10 @@ export default class CreatePage extends Component {
                     </label>
                     <label>
                         World Champion? 
-                        True
-                        <input type='radio' value='true'/>
-                        False
-                        <input type='radio' value='false'/>
+                        <select onChange={this.handleWorldChampion}>
+                            <option>true</option>
+                            <option>false</option>
+                        </select>
                     </label>
                     <label>
                         Put in the image name
