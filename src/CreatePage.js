@@ -9,15 +9,30 @@ export default class CreatePage extends Component {
         image: '',
     }
 
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        await request
+                .post('https://lab-06b.herokuapp.com/chessplayers')
+                .send({
+                    name: this.state.name,
+                    rating: this.state.rating,
+                    worldchampion: this.state.worldchampion,
+                    image: this.state.image
+                })
+                this.props.history.push('/');
+    }
+
     handleNameChange = (e) => {
         this.setState({name: e.target.value})
     }
     handleRatingChange = e => this.setState({rating: e.target.value})
 
+    handleImageChange = e => this.setState({image: e.target.value})
+
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <label>
                         Name
                         <input onChange={this.handleNameChange} />
@@ -27,10 +42,17 @@ export default class CreatePage extends Component {
                         <input onChange={this.handleRatingChange}/>
                     </label>
                     <label>
-                        World Champion?
+                        World Champion? 
+                        True
                         <input type='radio' value='true'/>
+                        False
                         <input type='radio' value='false'/>
                     </label>
+                    <label>
+                        Put in the image name
+                        <input onChange={this.handleImageChange}/>
+                    </label>
+                    <button>Submit</button>
                 </form>
             </div>
         )
