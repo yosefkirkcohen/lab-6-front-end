@@ -29,7 +29,8 @@ export default class CreatePage extends Component {
 
     handleImageChange = e => this.setState({image: e.target.value})
 
-    handleWorldChampion = e => this.setState({worldchampion: e.target.value})
+    handleWorldChampion = e => {this.setState({worldchampion: e.target.value})
+                        console.log(e.target.value)}
 
     render() {
         return (
