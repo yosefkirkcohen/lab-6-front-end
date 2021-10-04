@@ -5,7 +5,7 @@ export default class CreatePage extends Component {
     state = {
         name: '',
         rating: '',
-        worldchampion: '',
+        worldchampion: 'true',
         image: '',
     }
 
@@ -26,10 +26,10 @@ export default class CreatePage extends Component {
         this.setState({name: e.target.value})
     }
     handleRatingChange = e => this.setState({rating: e.target.value})
-
+                        
     handleImageChange = e => this.setState({image: e.target.value})
 
-    handleWorldChampion = e => this.setState({worldchampion: e.target.value})
+    handleWorldChampion = e => {this.setState({worldchampion: e.target.value})}
 
     render() {
         return (
@@ -37,24 +37,24 @@ export default class CreatePage extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Name
-                        <input onChange={this.handleNameChange} />
+                        <input onChange={this.handleNameChange} value ={this.state.name}/>
                     </label>
                     <label>
                         Rating
-                        <input onChange={this.handleRatingChange}/>
+                        <input type='number' onChange={this.handleRatingChange} value={this.state.rating}/>
                     </label>
                     <label>
                         World Champion? 
-                        <select onChange={this.handleWorldChampion}>
+                        <select onChange={this.handleWorldChampion} value={this.state.worldchampion}>
                             <option>true</option>
                             <option>false</option>
                         </select>
                     </label>
                     <label>
                         Put in the image name
-                        <input onChange={this.handleImageChange}/>
+                        <input onChange={this.handleImageChange} value={this.state.image}/>
                     </label>
-                    <button>Submit</button>
+                    <button disabled={ this.state.rating === '' || this.state.name === ''}>Submit</button>
                 </form>
             </div>
         )
