@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import request from 'superagent'
+import { Link } from 'react-router-dom'
 
 export default class ListPage extends Component {
     
@@ -15,14 +16,14 @@ export default class ListPage extends Component {
     render() {
         return (
             <div>
-                {this.state.chessplayers.map(player => <div>
+                {this.state.chessplayers.map(player => <Link to={`edit/${player.id}`} ><div>
                     Name: {player.name} <br/>
                     Country: {player.country} <br/>
                     Rating: {player.rating} <br/>
                     Is world champion? {player.worldchampion ? 'yes' : 'no'} <br/>
                     <img src={`${player.image}`} alt='person'/>
                     <br/> <br/> 
-                </div>)}
+                </div></Link>)}
                 
             </div>
         )
