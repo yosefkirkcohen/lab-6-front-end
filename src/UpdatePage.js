@@ -75,7 +75,7 @@ export default class UpdatePage extends Component {
                     </label>
                     <button disabled={ this.state.rating === '' || this.state.name === ''}>Submit</button>
                 </form>
-                <button onClick={deletePlayer(this.props.match.params.id)}  >DELETE THIS MF</button>
+                <button onClick={() => deletePlayer(this.props.match.params.id)}  >DELETE THIS MF</button>
             </div>
         )
     }
