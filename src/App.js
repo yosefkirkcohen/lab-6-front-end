@@ -8,6 +8,7 @@ import {
 import './App.css';
 import ListPage from './ListPage.js'
 import CreatePage from './CreatePage';
+import UpdatePage from './UpdatePage';
 
 export default class App extends Component {
   render() {
@@ -28,6 +29,11 @@ export default class App extends Component {
                           path="/create" 
                           exact
                           render={(routerProps) => <CreatePage {...routerProps} />} 
+                      />
+                      <Route 
+                          path="/edit/:id" 
+                          exact
+                          render={(routerProps) => <UpdatePage {...routerProps} />} 
                       />
                   </Switch>
               </Router>
