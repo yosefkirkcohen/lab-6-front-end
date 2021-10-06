@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import request from 'superagent'
 import { Link } from 'react-router-dom'
+import { getPlayers } from './fetch-utils'
 
 export default class ListPage extends Component {
     
@@ -9,8 +9,8 @@ export default class ListPage extends Component {
     }
 
     componentDidMount = async() => {
-        const response = await request.get('https://lab-06b.herokuapp.com/chessplayers')
-        this.setState({chessplayers: response.body})
+        const players = await getPlayers()
+        this.setState({chessplayers: players})
     }
     
     render() {
