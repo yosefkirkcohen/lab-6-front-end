@@ -1,5 +1,11 @@
 import request from "superagent";
 
+
+export async function getPlayers() {
+    const players = await request.get(`https://lab-06b.herokuapp.com/chessplayers`)
+    return players.body;
+}
+
 export async function getPlayer(id) {
     const player = await request.get(`https://lab-06b.herokuapp.com/chessplayers/${id}`)
     return player.body;
