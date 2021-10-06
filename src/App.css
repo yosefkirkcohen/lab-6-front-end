@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,59 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.active-link {
+  font-size: 1.3rem;
+  color:blue;
+}
+
+header {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.update {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.update-button {
+  width: max-content;
+  background-color: rgb(41, 194, 41);
+  border-radius: 5px;
+}
+
+.delete-button  {
+  margin-top: 10px;
+  background-color: red;
+  border-radius: 5px;
+}
+
+.nav-link {
+  padding: 10px;
+  border: solid 2px black;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: indigo;
+  color: lightcyan;
+}
+
+.create {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-button {
+  width: max-content;
 }
