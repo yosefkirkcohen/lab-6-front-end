@@ -16,12 +16,13 @@ export default class ListPage extends Component {
     render() {
         return (
             <div>
-                {this.state.chessplayers.map(player => <Link to={`edit/${player.id}`} ><div>
+                {this.state.chessplayers.map(player => <Link to={`edit/${player.id}`} key={player.id} ><div>
                     Name: {player.name} <br/>
                     Country: {player.country} <br/>
                     Rating: {player.rating} <br/>
                     Is world champion? {player.worldchampion ? 'yes' : 'no'} <br/>
-                    <img src={`${player.image}`} alt='person'/>
+                    Category: {player.category} <br/>
+                    <img src={`${player.image}`} alt='person'/> <br/>
                     <br/> <br/> 
                 </div></Link>)}
                 

@@ -11,15 +11,27 @@ export default class UpdatePage extends Component {
         image: '',
         worldchampion: true,
         category_id: 1,
-        categories: []
+        categories: [],
+        
     }
     componentDidMount = async () => {
-        const player = await getPlayer(this.props.match.params.id);
         const categories = await getCategories();
+        const player = await getPlayer(this.props.match.params.id);
+        
+        console.log(player)
+
         this.setState({
-            ...player,
-            categories: categories
+            categories: categories,
+            id: player.id,
+            name: player.name,
+            country: player.country,
+            rating: player.rating,
+            image: player.image,
+            worldchampion: player.worldchampion,
+            category_id: player.category_id
+            
         }) 
+        console.log(this.state)
     }
 
     handleNameChange = (e) => {
@@ -45,11 +57,10 @@ export default class UpdatePage extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
-            <div>
-                UPDATE!
-                <form onSubmit={this.handleSubmit}>
+            <div >
+                UPDATE THE PLAYER
+                <form onSubmit={this.handleSubmit} className='update'>
                     <label>
                         Name
                         <input onChange={this.handleNameChange} value ={this.state.name}/>
@@ -79,9 +90,9 @@ export default class UpdatePage extends Component {
                             }))}
                         </select>
                     </label>
-                    <button disabled={ this.state.rating === '' || this.state.name === ''}>UPDATE THIS GUY</button>
+                    <button className='update-button' disabled={ this.state.rating === '' || this.state.name === ''}>UPDATE THIS GUY</button>
                 </form>
-                <button onClick={() => this.deleteAndRoute()}  >DELETE THIS MF</button>
+                <button className='delete-button' onClick={() => this.deleteAndRoute()}  >DELETE THIS MF</button>
             </div>
         )
     }
