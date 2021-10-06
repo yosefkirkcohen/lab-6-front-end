@@ -33,9 +33,15 @@ export default class UpdatePage extends Component {
 
     handleCategoryChange = e => this.setState({category_id: e.target.value})
 
+    deleteAndRoute = async () => {
+        await deletePlayer(this.props.match.params.id)
+        this.props.history.push('/')
+    }
+
     handleSubmit = async e => {
         e.preventDefault();
         await editPlayer(this.props.match.params.id, this.state)
+        this.props.history.push('/')
     }
 
     render() {
@@ -73,9 +79,9 @@ export default class UpdatePage extends Component {
                             }))}
                         </select>
                     </label>
-                    <button disabled={ this.state.rating === '' || this.state.name === ''}>Submit</button>
+                    <button disabled={ this.state.rating === '' || this.state.name === ''}>UPDATE THIS GUY</button>
                 </form>
-                <button onClick={() => deletePlayer(this.props.match.params.id)}  >DELETE THIS MF</button>
+                <button onClick={() => this.deleteAndRoute()}  >DELETE THIS MF</button>
             </div>
         )
     }
